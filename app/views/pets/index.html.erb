@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pets</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apodo</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <th scope="row"> <%= pet.id %> </th>
+        <td> <%= pet.nombre %> </td>
+        <td> <%= pet.apodo %> </td>
+        <td> <%= pet.fecha %> </td>
+        <td> <%= pet.imagen %> </td>
+        <td> <%= pet.descripcion %> </td>
+        <td><%= link_to "Mostrar mascota", pet, class:"btn btn-outline-dark btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New pet", new_pet_path %>
+<%= will_paginate @pets, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>
+
+
